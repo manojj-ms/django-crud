@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'employee.apps.EmployeeConfig', # Adding The Employee app #new  
+    'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
+    'drf_yasg',
+    'rest_framework',
+    'rest_framework_swagger',
     'accounts.apps.AccountsConfig', # Adding The accounts app #new  
 ]
 
@@ -129,7 +131,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
  
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]  
-STATIC_ROOT =os.path.join(BASE_DIR,'assets')  
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]    
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
 MEDIA_URL = '/media/'   
+VENV_PATH = os.path.dirname(BASE_DIR)
+STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
