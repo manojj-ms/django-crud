@@ -26,7 +26,7 @@ urlpatterns = [
     path('services/', TemplateView.as_view(template_name='services.html'), name='services'),  # display services page
     path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),  # display contact page
     path('accounts/', include('accounts.urls'), name='accounts'),  # display Sign up page
-    path('', include('employee.urls')),  # displays all employee app pages
+    #path('', include('employee.urls')),  # displays all employee app pages
 ]
 
 if settings.DEBUG:
